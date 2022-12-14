@@ -55,8 +55,14 @@ app.get("/question", async (request, response) => {
   .findOne({username: username});
 
   // PLACEHOLDER QUESTION - FROM API REQUEST I NEED "question", "correct_answer", and "incorrect_answers"
-  let apiResponse = JSON.parse('{"category":"Entertainment: Video Games","type":"multiple","difficulty":"easy","question":"In what year was Hearthstone released?","correct_answer":"2014","incorrect_answers":["2011","2013","2012"]}');
-  let {question, correct_answer, incorrect_answers} = apiResponse;
+  const localResp = await fetch("https://opentdb.com/api.php?amount=1");
+  var data = await localResp.json();
+  let {category, question, difficulty, correct_answer, incorrect_answers} = data.results[0];
+  // response.render("testingIndex", {name: question});
+
+
+  // let apiResponse = JSON.parse('{"category":"Entertainment: Video Games","type":"multiple","difficulty":"easy","question":"In what year was Hearthstone released?","correct_answer":"2014","incorrect_answers":["2011","2013","2012"]}');
+  // let {question, correct_answer, incorrect_answers} = apiResponse;
   await client.db(DB).collection(COLLECTION)
   .updateOne({username: username}, {$set: {question, correct_answer}});
 
