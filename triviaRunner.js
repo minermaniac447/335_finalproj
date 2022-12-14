@@ -14,7 +14,7 @@ const COLLECTION = process.env.MONGO_COLLECTION;
 const uri = `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@cluster0.69gbgtq.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-app.set("views", ".\\templates");
+app.set("views", "templates");
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static("static"));
@@ -22,6 +22,7 @@ app.use(cookieParser());
 
 // Initial Load/Restart
 app.get("/", (request, response) => {
+
   response.render("index", {username: request.cookies.username ?? ""});
 });
 
