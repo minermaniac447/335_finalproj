@@ -1,6 +1,10 @@
+
+
 body {
     background-color: blanchedalmond;
     font-size: 30px;
+    max-width: 500px;
+    margin: auto;
 }
 
 input[type=button], input[type=submit] {
@@ -11,6 +15,7 @@ input[type=button], input[type=submit] {
   padding: 10px 10px;
   text-align: center;
   touch-action:auto;
+
 }
 
 
