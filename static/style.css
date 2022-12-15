@@ -1,0 +1,19 @@
+body {
+    background-color: blanchedalmond;
+    font-size: 30px;
+}
+
+input[type=button], input[type=submit] {
+  background-color: #205C37;
+  border-radius: 8px;
+  color: white;
+  font-size: 25px;
+  padding: 10px 10px;
+  text-align: center;
+  touch-action:auto;
+}
+
+
+input[type=button]:hover, input[type=submit]:hover {
+  background-color: #3A754E;
+}
