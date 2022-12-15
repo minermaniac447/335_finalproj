@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const app = express();
 const port = 3000; // Might need to change later, idk how the hosting site works
-require("dotenv").config({ path: "credentialsDontPost\\.env" });
+require("dotenv").config({ path: "credentialsDontPost/.env" });
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const DB = process.env.MONGO_DB_NAME;
@@ -69,6 +69,7 @@ app.get("/question", async (request, response) => {
   let shuffled_answers = [correct_answer].concat(incorrect_answers);
   shuffled_answers.sort((a, b) => Math.random() - 0.5);
   response.render("question", {question: question, answers: shuffled_answers});
+  // response."render("question");
 });
 
 // Showing the correct answer and the selected answer to the question
