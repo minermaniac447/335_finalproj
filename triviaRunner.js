@@ -101,14 +101,22 @@ app.get("/leaderboard", async (request, response) => {
   // get top 5 players, by score
   let top5 = await client.db(DB).collection(COLLECTION)
   .find().sort({high_score: -1}).limit(5).toArray();
-  if (!top5.some(player => player.username === username)) {
+  if (username && top5 && !top5.some(player => player.username === username)) {
     top5[5] = await client.db(DB).collection(COLLECTION).findOne({username: username});
   }
 
-  console.log(top5);
+  let table;
+  if (top5 && top5.length > 0) {
+    table = "<table class=\"leaderboard\">\n<tr><th>Username</th><th>High Score</th></tr>";
+    top5.forEach(player => {
+      table += `\n<tr><td>${player.username}</td><td>${player.high_score}</td></tr>`;
+    });
+    table += `\n</table>`;
+  } else {
+    table = "There are no players! Play a round to be the top of the leaderboard!";
+  }
 
-  // Do whatever manipulation of the data to return the response table
-  response.render("leaderboard", {});
+  response.render("leaderboard", {table: table});
 });
 
 app.listen(port);
