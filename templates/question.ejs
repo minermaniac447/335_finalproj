@@ -12,6 +12,30 @@
 	<h1>Trivia Question</h1>
 
 	<%- question %>
+	<form action="/answer" method="post">
+		<input type="button" value="<%- answers[0] %>">
+	</form> 
+
+	<form action="/answer" method="post">
+		<input type="button" value="<%- answers[1] %>">
+	</form> 
+	
+	<% if (locals.answers[2]) { %>
+
+		<form action="/answer" method="post">
+			<input type="button" value="<%- answers[2] %>">
+		</form> 
+	   
+	<% } %>
+
+	<% if (locals.answers[3]) { %>
+
+		<form action="/answer" method="post">
+			<input type="button" value="<%- answers[3] %>">
+		</form> 
+	   
+	<% } %>
+
 </body>
 
 </html>
