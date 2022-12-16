@@ -73,15 +73,16 @@ app.get("/question", async (request, response) => {
 });
 
 // Showing the correct answer and the selected answer to the question
-app.get("/answer", async (request, response) => {
+app.post("/answer", async (request, response) => {
   // get username, question, correct answer, and scores
   const username = request.cookies.username;
   let {question, correct_answer, current_score, high_score} = await client.db(DB).collection(COLLECTION)
   .findOne({username: username});
+  correct_answer = correct_answer.replaceAll("&amp;", "&");
 
   // Check if the right answer was selected, and if so update the score (and high score if applicable)
   let correct = false;
-  if (request.query.selected === correct_answer) {
+  if (request.body.selected == correct_answer) {
     correct = true;
     current_score++;
     let update = {current_score: current_score};
@@ -89,9 +90,8 @@ app.get("/answer", async (request, response) => {
     await client.db(DB).collection(COLLECTION).updateOne({username: username}, {$set: update});
   }
 
-  let message = "this should say something different depending on whether the user selected the right answer";
   // Need to work out next button logic for if the user correctly or incorrectly answers the question
-  response.render("answer", {selected: request.query.selected, correct_answer: correct_answer, question: question, current_score: current_score});
+  response.render("answer", {selected: request.body.selected, correct_answer: correct_answer, question: question, current_score: current_score, correct: correct});
 });
 
 // Render Leaderboard
@@ -117,7 +117,7 @@ app.get("/leaderboard", async (request, response) => {
     table = "There are no players! Play a round to be the top of the leaderboard!";
   }
 
-  response.render("leaderboard", {table: table});
+  response.render("leaderboard", {table: table, username: username});
 });
 
 app.listen(port);

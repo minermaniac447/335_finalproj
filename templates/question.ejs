@@ -13,17 +13,17 @@
 
 	<%- question %>
 	<form action="/answer" method="post">
-		<input type="button" value="<%- answers[0] %>">
+		<input type="submit" name="selected" value="<%- answers[0] %>" >
 	</form> 
 
 	<form action="/answer" method="post">
-		<input type="button" value="<%- answers[1] %>">
+		<input type="submit" name="selected" value="<%- answers[1] %>">
 	</form> 
 	
 	<% if (locals.answers[2]) { %>
 
 		<form action="/answer" method="post">
-			<input type="button" value="<%- answers[2] %>">
+			<input type="submit" name="selected" value="<%- answers[2] %>">
 		</form> 
 	   
 	<% } %>
@@ -31,7 +31,7 @@
 	<% if (locals.answers[3]) { %>
 
 		<form action="/answer" method="post">
-			<input type="button" value="<%- answers[3] %>">
+			<input type="submit" name="selected" value="<%- answers[3] %>">
 		</form> 
 	   
 	<% } %>
