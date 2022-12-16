@@ -5,7 +5,9 @@ body {
     font-size: 30px;
     max-width: 500px;
     margin: auto;
+    text-align:center;
 }
+
 
 input[type=button], input[type=submit] {
   background-color: #205C37;
@@ -13,7 +15,7 @@ input[type=button], input[type=submit] {
   color: white;
   font-size: 25px;
   padding: 10px 10px;
-  text-align: center;
+  /* text-align: center; */
   touch-action:auto;
 
 }
@@ -21,4 +23,16 @@ input[type=button], input[type=submit] {
 
 input[type=button]:hover, input[type=submit]:hover {
   background-color: #3A754E;
+}
+
+input[type=text] {
+    border-radius: 8px;
+    font-size: 25px;
+    padding: 10px 0px;
+    margin: 10px 0px;
+    text-align: center;
+}
+
+input {
+    width: 100%
 }
