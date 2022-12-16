@@ -8,6 +8,40 @@ body {
     text-align:center;
 }
 
+table {
+    border-collapse: collapse;
+}
+  
+th {
+	/* padding: 8px; */
+    background-color: #205C37;
+    color: white;
+    border-radius: 8px;
+    font-size: 25px;
+    padding: 10px 10px;
+    border: #205C37;
+    border-style: solid;
+
+}
+
+td {
+    background-color: white;
+    border-radius: 8px;
+    border: #205C37;
+
+
+
+    font-size: 25px;
+    padding: 10px 10px;
+
+  
+}
+
+thead th {
+    background-color: black;
+}
+
+
 
 input[type=button], input[type=submit] {
   background-color: #205C37;
@@ -15,11 +49,9 @@ input[type=button], input[type=submit] {
   color: white;
   font-size: 25px;
   padding: 10px 10px;
-  /* text-align: center; */
   touch-action:auto;
 
 }
-
 
 input[type=button]:hover, input[type=submit]:hover {
   background-color: #3A754E;
