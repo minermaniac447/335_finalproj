@@ -11,7 +11,7 @@
 <body>
 	<h1>Trivia Question</h1>
 
-	<%- question %>
+	<p><%- question %></p>
 	<form action="/answer" method="post">
 		<input type="submit" name="selected" value="<%- answers[0] %>" >
 	</form> 
