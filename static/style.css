@@ -9,14 +9,20 @@ body {
 }
 
 table {
-    border-collapse: collapse;
+    text-align: center;
+    border-color: #205C37;
+
+    padding: 10px 0px;
+    margin: 10px 0px;
+    width: 100%
+
 }
   
 th {
 	/* padding: 8px; */
     background-color: #205C37;
     color: white;
-    border-radius: 8px;
+    border-radius: 0px;
     font-size: 25px;
     padding: 10px 10px;
     border: #205C37;
@@ -26,11 +32,8 @@ th {
 
 td {
     background-color: white;
-    border-radius: 8px;
+    border-radius: 0px;
     border: #205C37;
-
-
-
     font-size: 25px;
     padding: 10px 10px;
 
