@@ -98,9 +98,9 @@ app.get("/leaderboard", async (request, response) => {
   if (top5 && top5.length > 0) {
     table = "<table class=\"leaderboard\">\n<tr><th>Username</th><th>High Score</th></tr>";
     top5.forEach(player => {
-      if (player.high_score > 0){
+      // if (player.high_score > 0){
         table += `\n<tr><td>${player.username}</td><td>${player.high_score}</td></tr>`;
-      }
+      // }
     });
     table += `\n</table>`;
   } else {
